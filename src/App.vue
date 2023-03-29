@@ -17,7 +17,8 @@ export default{
           }
       try{
         const cardresult = await axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php');
-        this.store.cardtype = cardresult.data.data
+        this.store.cardtype = cardresult.data
+        console.log(cardresult.data)
       }catch(e){
         console.log(e)
       }

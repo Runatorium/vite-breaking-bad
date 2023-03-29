@@ -24,7 +24,7 @@ export default{
             Dropdown
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <li v-for="type, in store.cardtype"><button class="dropdown-item" type="button">Action</button></li>
+            <li v-for="type, in store.cardtype"><button class="dropdown-item" type="button">{{type.archetype_name}}</button></li>
         </ul>
     </div>
 
