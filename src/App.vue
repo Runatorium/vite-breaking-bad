@@ -13,6 +13,7 @@ export default{
           store
         }
       },
+  
     methods: {
         getCard() {
           axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php')
@@ -21,6 +22,9 @@ export default{
         });
        }
     },
+    getData() {
+      this.getCard();
+    }
   }
   console.log(store.cardList)
   
