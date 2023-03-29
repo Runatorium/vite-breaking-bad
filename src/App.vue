@@ -10,13 +10,17 @@ export default{
 
     async mounted() {
       try { 
-          const res = await axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php')
-
+          const res = await axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${value}`);
           this.store.cardList = res.data.data;
-          console.log(this.store.cardList[0].archetype);
           }  catch(e){
           console.log(e)
           }
+      try{
+        const cardresult = await axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php');
+        this.store.cardtype = cardresult.data.data
+      }catch(e){
+        console.log(e)
+      }
         },
 
         data() {
