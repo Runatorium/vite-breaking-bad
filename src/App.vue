@@ -1,6 +1,7 @@
 <template>
 
   <MyHeader @research = "doResearch"/>
+  <MyCards></MyCards>
   
 </template>
 
@@ -13,6 +14,7 @@ import axios from 'axios'
 export default{
   components:{
     MyHeader,
+    MyCards,
   },
   
     async mounted() {
@@ -42,6 +44,7 @@ export default{
           const res = await axios.get(`${store.urlApi}`);
           this.store.cardList = res.data.data;
           console.log(this.store.cardList)
+          store.urlApi = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype='
           }  catch(e){
           console.log(e)
           }

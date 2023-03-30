@@ -48,5 +48,11 @@ export default{
         vertical-align: middle;
         display:inline
     }
+    .dropdown{
+        position: absolute;
+        margin-left: 10%;
+        margin-top: 20px;
+
+    }
 
 </style>
