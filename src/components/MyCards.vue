@@ -15,7 +15,7 @@ export default {
 </script>
 
 <template>
-    <div v-for="(card, index) in store.cardList">
+    <div v-for="(card, index) in this.store.cardList">
         <img :src="this.store.cardList[index].card_images[0].image_url" alt="">
         <h4>{{this.store.cardList[index].name}}</h4>
         <p>{{this.store.cardList[index].archetype}}</p>

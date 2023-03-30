@@ -8,6 +8,12 @@ export default{
               store
             }
           },
+          methods:{
+            eventreader(event){
+                store.value = event.target.value
+                this.$emit('research');
+            }
+          }
 }
 
 </script>
@@ -20,16 +26,16 @@ export default{
         </h1>
     </div>
     <div class="dropdown">
-        <input v-model="store.value"   type="text" placeholder="Archetype">
         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
         </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <li v-for="type, in store.cardtype"><button class="dropdown-item" type="button">{{type.archetype_name}}</button></li>
-        </ul>
+        <select @change=" eventreader($event)" class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <option v-for="type, in store.cardtype" :value ="type.archetype_name">{{type.archetype_name}}
+            </option>
+        </select>
     </div>
-
 </template>
+
 
 <style scoped>
     img{

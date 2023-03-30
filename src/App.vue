@@ -1,5 +1,12 @@
+<template>
+
+  <MyHeader @research = "doResearch"/>
+  
+</template>
+
 <script>
 import MyHeader from './components/MyHeader.vue'
+import MyCards from './components/MyCards.vue'
 import { store } from './store.js';
 import axios from 'axios'
 
@@ -7,14 +14,8 @@ export default{
   components:{
     MyHeader,
   },
-
+  
     async mounted() {
-      try { 
-          const res = await axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${store.value}`);
-          this.store.cardList = res.data.data;
-          }  catch(e){
-          console.log(e)
-          }
       try{
         const cardresult = await axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php');
         this.store.cardtype = cardresult.data
@@ -27,10 +28,24 @@ export default{
         data() {
             return {
               store
+              
             }
           },
         methods: {
-     
+          doResearch(){
+            store.urlApi += `${store.value}`;
+            console.log(`${store.urlApi}`);
+            this.cardResearch()
+          },
+        async cardResearch(){
+          try { 
+          const res = await axios.get(`${store.urlApi}`);
+          this.store.cardList = res.data.data;
+          console.log(this.store.cardList)
+          }  catch(e){
+          console.log(e)
+          }
+        }       
     },
   }
   
@@ -38,11 +53,7 @@ export default{
   
 </script>
 
-<template>
 
-<MyHeader></MyHeader>
-
-</template>
 
 
 <style lang="scss">
