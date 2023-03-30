@@ -18,6 +18,16 @@ export default{
   },
   
     async mounted() {
+      
+      try { 
+          const res = await axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=Abyss Actor`);
+          this.store.cardList = res.data.data;
+          console.log(this.store.cardList)
+          store.urlApi = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype='
+          }  catch(e){
+          console.log(e)
+          }
+          
       try{
         const cardresult = await axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php');
         this.store.cardtype = cardresult.data

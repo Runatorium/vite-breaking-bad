@@ -19,6 +19,11 @@ export default {
 </script>
 
 <template>
+    <div class="blackbanner">
+        <div>
+            <h3>Ci sono {{store.cardList.length}} di questo tipo</h3>
+        </div>
+    </div>
     <div class="containermain">
         <div class="innercontainer">
             <div class="card" v-for="(card) in this.store.cardList">
@@ -31,14 +36,18 @@ export default {
 </template>
 
 <style scoped>
+
+.blackbanner{
+    background-color: black;
+    width: 100%;
+    height: 50px;
+}
 .containermain{
     background-color: rgb(215, 117, 13);
     display: flex;
     justify-content: center;
-    margin-top: 10px;
     padding-top: 80px;
     padding-bottom: 80px;
-    min-height: 100vh;
 }
 .innercontainer{
     background-color: white;
@@ -55,5 +64,11 @@ export default {
     padding: 10px;
     width: 200px;
     background-color: rgb(215, 117, 13)
+}
+
+h3{
+    color: white;
+    font-size: 14px;
+    text-align: center;
 }
 </style>

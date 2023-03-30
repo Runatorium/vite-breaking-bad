@@ -34,6 +34,7 @@ export default{
             </option>
         </select>
     </div>
+        
 </template>
 
 
@@ -51,7 +52,7 @@ export default{
     .dropdown{
         position: absolute;
         margin-left: 10%;
-        margin-top: 20px;
+        margin-top: 50px;
 
     }
 
