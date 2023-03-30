@@ -20,6 +20,7 @@ export default{
         </h1>
     </div>
     <div class="dropdown">
+        <input v-model="store.value"   type="text" placeholder="Archetype">
         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
         </button>

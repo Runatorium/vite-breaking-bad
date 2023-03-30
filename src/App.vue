@@ -10,7 +10,7 @@ export default{
 
     async mounted() {
       try { 
-          const res = await axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${value}`);
+          const res = await axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${store.value}`);
           this.store.cardList = res.data.data;
           }  catch(e){
           console.log(e)
